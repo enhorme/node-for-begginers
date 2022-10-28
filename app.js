@@ -20,12 +20,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(verifyJWT);
-app.use("/employees", require("./routes/api/employees"));
 app.post("/register", registerController.handleRegister);
 app.post("/auth", authController.handleAuth);
 app.get("/refresh", refreshController.handleRefreshToken);
 app.get("/logout", logoutController.handleLogout);
+
+app.use(verifyJWT);
+app.use("/employees", require("./routes/api/employees"));
 
 mongoose.connection.once("open", () => {
   console.log("Connected to M_DB");
