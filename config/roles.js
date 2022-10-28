@@ -1,7 +1,7 @@
-const ROLES_LIST = {
-  Admin: 1231,
+const ROLES = {
+  Admin: 1010,
   Editor: 1989,
   User: 2018,
 };
 
-module.exports = ROLES_LIST;
+module.exports = ROLES;
